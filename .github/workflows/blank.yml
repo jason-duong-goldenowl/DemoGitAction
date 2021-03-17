@@ -33,5 +33,5 @@ jobs:
      --data-binary "{\"app_id\": \"YOUR_APP_ID\",
 \"contents\": {\"en\": \"English Message\"},
 \"included_segments\": [\"Subscribed Users\"],
-\"buttons\": [{\"id\": \"id1\", \"text\": \"button1\", \"icon\": \"ic_menu_share\"}, {\"id\": \"id2\", \"text\": \"button2\", \"icon\": \"ic_menu_send\"}]}" \
+\"web_buttons\": [{\"id\": \"id1\", \"text\": \"button1\", \"icon\": \"ic_menu_share\",\"url\": \"https://yoursite.com\"}, {\"id\": \"id2\", \"text\": \"button2\", \"icon\": \"ic_menu_send\",\"url\": \"https://yoursite.com\"}]}" \
      https://onesignal.com/api/v1/notifications
