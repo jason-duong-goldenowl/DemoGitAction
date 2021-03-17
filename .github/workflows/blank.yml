@@ -34,5 +34,4 @@ jobs:
           \"contents\": {\"en\": \"English Message\"},
           \"headings\": {\"en\": \"English Title\"},
           \"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]} |
-          "\https://onesignal.com/api/v1/notifications
-     https://onesignal.com/api/v1/notifications
+          "\https://onesignal.com/api/v1/notifications"
