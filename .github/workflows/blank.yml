@@ -27,11 +27,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          curl --include \
-          --request POST \
-          --header "Content-Type: application/json; charset=utf-8" \
-          --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",
-          \"contents\": {\"en\": \"English Message\"},
-          \"headings\": {\"en\": \"English Title\"},
-\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" \                                                                                                                           
+          curl --include \ |                                                                            
+          --request POST \ |                                                                                             
+          --header "Content-Type: application/json; charset=utf-8" \ |                                                                                           
+          --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\", |
+          \"contents\": {\"en\": \"English Message\"}, |
+          \"headings\": {\"en\": \"English Title\"}, |
+          \"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\",\"6392d91a-b206-4b7b-a620-cd68e32c3a76\",\"76ece62b-bcfe-468c-8a78-839aeaa8c5fa\",\"8e0f21fa-9a5a-4ae7-a9a6-ca1f24294b86\"]}" \ |
+          https://onesignal.com/api/v1/notifications                                                                                                                    
      https://onesignal.com/api/v1/notifications
