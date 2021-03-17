@@ -29,8 +29,8 @@ jobs:
         run: curl --include \
      --request POST \
      --header "Content-Type: application/json; charset=utf-8" \
-     --header "Authorization: Basic YOUR_REST_API_KEY" \
-     --data-binary "{\"app_id\": \"YOUR_APP_ID\",
+     --header "Authorization: Basic OWZlYmQ1YmYtYjdlNi00MzJjLWFlODUtNmJhNmI2Yzc1OTQ0" \
+     --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",
 \"contents\": {\"en\": \"English Message\"},
 \"included_segments\": [\"Subscribed Users\"],
 \"web_buttons\": [{\"id\": \"id1\", \"text\": \"button1\", \"icon\": \"ic_menu_share\",\"url\": \"https://yoursite.com\"}, {\"id\": \"id2\", \"text\": \"button2\", \"icon\": \"ic_menu_send\",\"url\": \"https://yoursite.com\"}]}" \
