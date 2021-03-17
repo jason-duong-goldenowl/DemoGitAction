@@ -27,7 +27,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: | 
-          curl -i -H "Accept: application/json" -H "Content-Type: application/json" https://jsonplaceholder.typicode.com/posts
+          curl -i -H "Accept: application/json" 
+          -H "Content-Type: application/json" https://jsonplaceholder.typicode.com/posts
 
 
 
