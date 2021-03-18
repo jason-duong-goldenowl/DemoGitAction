@@ -18,10 +18,10 @@ jobs:
       with:
           java-version: 1.8
           
-    - name: intall gradle wrapper
+    - name: Intall gradle wrapper
       run: gradle wrapper
       
-    - name: Build debug apk
+    - name: Build Android
       run: cd android && ./gradlew clean && ./gradlew build
 
 #     - name: upload file apk
@@ -29,7 +29,7 @@ jobs:
 #       run: curl -F email=dirk.duong.goldenowl@gmail.com -F file=@android/app/build/outputs/apk/debug/app-debug.apk https://srv-store1.gofile.io/uploadFile
     
     
-    - name: 'Call API TEST'
+    - name: 'Update Apk'
       uses: JantHsueh/upload-file-action@master
       id: api
       with:
@@ -39,10 +39,10 @@ jobs:
 
     - name: Send Noticafition
       run: |
-        curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ steps.api.outputs.output.directLink }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
+        curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ steps.api.outputs.output.data }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
 
     - name: 'Use response'
-      run: echo ${{ steps.api.outputs.output.directLink }}
+      run: echo ${{ steps.api.outputs.output.data }}
 
 #     - name: Show Response
 #       run: echo ${{ steps.myRequest.outputs.response }}
