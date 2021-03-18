@@ -20,6 +20,9 @@ jobs:
           
     - name: intall gradle wrapper
       run: gradle wrapper
+    
+    - name: apply base
+      run: apply plugin:'base'
       
     - name: clean
       run: ./gradlew clean
