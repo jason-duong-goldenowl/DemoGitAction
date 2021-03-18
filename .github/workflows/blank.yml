@@ -34,3 +34,8 @@ jobs:
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: testers
         file: app/build/outputs/apk/release/app-release.apk
+
+
+
+
+
