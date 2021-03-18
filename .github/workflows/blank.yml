@@ -37,12 +37,12 @@ jobs:
         forms: '{"email":"dirk.duong.goldenowl@gmail.com"}'
         fileForms: '{"file":"android/app/build/outputs/apk/release/app-release.apk"}'
 
-#     - name: Send Noticafition
-#       run: |
-#         curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ steps.api.outputs.output.data }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
+    - name: Send Noticafition
+      run: |
+        curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ fromJson(steps.api.outputs.output).data.data.directLink }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
 
     - name: 'Use response'
-      run: echo ${{ fromJson(steps.api.outputs.output).data.data }}
+      run: echo ${{ fromJson(steps.api.outputs.output).data.data.directLink }}
 
 #     - name: Show Response
 #       run: echo ${{ steps.myRequest.outputs.response }}
