@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Pushes test file
-        run: git remote set-url origin git@github.com:jason-duong-goldenowl/app_madnmore.git.
           
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -24,9 +21,11 @@ jobs:
           source_file: 'App.js'
           destination_repo: 'jason-duong-goldenowl/app_madnmore'
           destination_folder: 'test'
-          user_email: 'drink-duong-goldenowl@gmail.com'
+          user_email: 'dirk.duong.goldenowl@gmail.com'
           user_name: 'jason-duong-goldenowl'
           commit_message: 'A custom message for the commit'
+          
+          
 #     - uses: actions/checkout@v2
       
 #     - name: Use Java8
