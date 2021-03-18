@@ -29,7 +29,7 @@ jobs:
 #       run: curl -F email=dirk.duong.goldenowl@gmail.com -F file=@android/app/build/outputs/apk/debug/app-debug.apk https://srv-store1.gofile.io/uploadFile
     
     
-    - name: 'Call API'
+    - name: 'Call API TEST'
       uses: fjogeleit/http-request-action@master
       id: api
       with:
