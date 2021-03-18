@@ -10,44 +10,57 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - uses: actions/checkout@v2
-      
-    - name: Use Java8
-      uses: actions/setup-java@v1
-      with:
-          java-version: 1.8
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'App.js'
+          destination_repo: 'jason-duong-goldenowl/app_madnmore'
+          destination_folder: 'test'
+          user_email: 'dirk.duong.godelowl@gmail.com'
+          user_name: 'jason-duong-goldenowl'
+          commit_message: 'A custom message for the commit'
           
-    - name: Intall gradle wrapper
-      run: gradle wrapper
+          
+          
+          
+#     - uses: actions/checkout@v2
       
-    - name: Build Android
-      run: cd android && ./gradlew clean && ./gradlew build
+#     - name: Use Java8
+#       uses: actions/setup-java@v1
+#       with:
+#           java-version: 1.8
+          
+#     - name: Intall gradle wrapper
+#       run: gradle wrapper
+      
+#     - name: Build Android
+#       run: cd android && ./gradlew clean && ./gradlew build
 
 #     - name: upload file apk
 #       id: myRequest
 #       run: curl -F email=dirk.duong.goldenowl@gmail.com -F file=@android/app/build/outputs/apk/debug/app-debug.apk https://srv-store1.gofile.io/uploadFile
     
     
-    - name: Update APK
-      uses: JantHsueh/upload-file-action@master
-      id: api
-      with:
-        url: https://srv-store1.gofile.io/uploadFile
-        forms: '{"email":"dirk.duong.goldenowl@gmail.com"}'
-        fileForms: '{"file":"android/app/build/outputs/apk/release/app-release.apk"}'
+#     - name: Update APK
+#       uses: JantHsueh/upload-file-action@master
+#       id: api
+#       with:
+#         url: https://srv-store1.gofile.io/uploadFile
+#         forms: '{"email":"dirk.duong.goldenowl@gmail.com"}'
+#         fileForms: '{"file":"android/app/build/outputs/apk/release/app-release.apk"}'
 
-    - name: Send Noticafition
-      run: |
-        curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ fromJson(steps.api.outputs.output).data.data.directLink }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
+#     - name: Send Noticafition
+#       run: |
+#         curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ fromJson(steps.api.outputs.output).data.data.directLink }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
 
-    - name: 'Use response'
-      run: echo ${{ fromJson(steps.api.outputs.output).data.data.directLink }}
+#     - name: 'Use response'
+#       run: echo ${{ fromJson(steps.api.outputs.output).data.data.directLink }}
 
-#     - name: Show Response
-#       run: echo ${{ steps.myRequest.outputs.response }}
-    
-    
     
 #     - name: Upload File
 #       id: upload
