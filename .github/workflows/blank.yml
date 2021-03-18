@@ -23,7 +23,10 @@ jobs:
       
     - name: Build debug apk
       run: ./gradlew build
-      
+    
+    - name: Build debug apk
+      run: ./gradlew build  
+
     - name: build release 
       run: ./gradlew assembleRelease
 
