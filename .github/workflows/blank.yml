@@ -13,17 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
           
-      - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
-          source_file: 'App.js'
-          destination_repo: 'jason-duong-goldenowl/app_madnmore'
-          destination_folder: 'test'
-          user_email: 'dirk.duong.goldenowl@gmail.com'
-          user_name: 'jason-duong-goldenowl'
-          commit_message: 'A custom message for the commit'
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "app.js,test/b.txt"
+          target: "test"
           
 #     - uses: actions/checkout@v2
       
