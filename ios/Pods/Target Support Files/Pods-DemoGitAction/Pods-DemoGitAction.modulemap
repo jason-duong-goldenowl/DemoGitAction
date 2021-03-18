@@ -1,0 +1,6 @@
+module Pods_DemoGitAction {
+  umbrella header "Pods-DemoGitAction-umbrella.h"
+
+  export *
+  module * { export * }
+}
