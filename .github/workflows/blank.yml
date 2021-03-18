@@ -28,7 +28,7 @@ jobs:
       - name: install fribase
         run: curl -sL https://firebase.tools | bash
       - name: login
-        run: firebase login --no-localhost
+        run: firebase login:ci
       - name: firebase init
         run: firebase init hosting:github
 
