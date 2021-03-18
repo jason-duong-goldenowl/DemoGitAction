@@ -25,10 +25,10 @@ jobs:
       run: cd android && ./gradlew clean
       
     - name: Build debug apk
-      run: ./gradlew build
+      run: cd android && ./gradlew build
       
     - name: build release 
-      run: ./gradlew assembleRelease
+      run: cd android && ./gradlew assembleRelease
 
     - name: Create release and upload apk
       uses: underwindfall/create-release-with-debugapk@v2.0.0
