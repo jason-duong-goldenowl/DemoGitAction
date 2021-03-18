@@ -1,16 +1,13 @@
-name: CI
-
+name: Android CI
 on:
   push:
-    branches: 
-      - master
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-
   build:
-
-    runs-on: ubuntu-18.04
-
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -33,8 +30,7 @@ jobs:
         asset_path: app/build/outputs/apk/debug/app-debug.apk
         asset_name: Example.apk
         asset_content_type: application/zip
-
-
-
-
-
+    
+    
+    
+    
