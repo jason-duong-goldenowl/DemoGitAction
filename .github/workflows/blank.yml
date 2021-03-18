@@ -16,7 +16,7 @@ jobs:
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          API_TOKEN_GITHUB: 40f5e7861609bdbeb5dc687145b05c3eb6ff9885
         with:
           source_file: 'App.js'
           destination_repo: 'jason-duong-goldenowl/app_madnmore'
