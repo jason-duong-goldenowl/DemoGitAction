@@ -38,7 +38,7 @@ jobs:
         fileForms: '{"file":"android/app/build/outputs/apk/release/app-release.apk"}'
 
     - name: 'Use response'
-      run: echo ${{ steps.api.outputs.response }}
+      run: echo ${{ steps.api.outputs.output }}
 
 #     - name: Show Response
 #       run: echo ${{ steps.myRequest.outputs.response }}
