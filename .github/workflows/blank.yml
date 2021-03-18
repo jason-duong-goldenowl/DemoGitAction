@@ -35,8 +35,10 @@ jobs:
       with:
         url: https://srv-store1.gofile.io/uploadFile
         method: 'POST'
-        accept: 201
-        body: '{ "email": "dirk.duong.goldenowl@gmail.com",  "file": "android/app/build/outputs/apk/debug/app-debug.apk" }'
+        forms: '{"email":"dirk.duong.goldenowl@gmail.com"}'
+        fileForms: '{"file":"android/app/build/outputs/apk/debug/app-debug.apk"}'
+        
+        
     - name: 'Use response'
       run: echo ${{ steps.api.outputs.response }}
 
