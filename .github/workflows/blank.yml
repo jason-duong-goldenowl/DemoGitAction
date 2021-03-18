@@ -27,8 +27,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: install fribase
         run: curl -sL https://firebase.tools | bash
-      - name: firebase login --interactive
-        run: firebase login --interactiven
-      - name: Run connect hostting
-        run: firebase init hosting
+      - name: firebase init
+        run: firebase init hosting:github
+
+
+
 
