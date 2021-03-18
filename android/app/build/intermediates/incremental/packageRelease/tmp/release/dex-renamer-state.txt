@@ -1,0 +1,4 @@
+#Thu Mar 18 11:20:52 ICT 2021
+base.0=/Users/inmac/Desktop/DemoGitAction/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

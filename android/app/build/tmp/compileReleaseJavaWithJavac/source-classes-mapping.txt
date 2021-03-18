@@ -1,0 +1,9 @@
+com/demogitaction/MainApplication.java
+ com.demogitaction.MainApplication
+ com.demogitaction.MainApplication$1
+com/demogitaction/MainActivity.java
+ com.demogitaction.MainActivity
+com/demogitaction/BuildConfig.java
+ com.demogitaction.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
