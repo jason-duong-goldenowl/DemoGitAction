@@ -20,12 +20,9 @@ jobs:
           
     - name: intall gradle wrapper
       run: gradle wrapper
-   
-    - name: clean gradlew
-      run: cd android && ./gradlew clean
       
     - name: Build debug apk
-      run: cd android && ./gradlew build
+      run: cd android && ./gradlew clean && ./gradlew build
 
     - name: Upload File
       id: upload
@@ -33,7 +30,7 @@ jobs:
       with:
           url: https://www.pgyer.com/apiv2/app/upload
           forms: '{"_api_key":"${{ secrets.pgyer_key }}","buildInstallType":3}'
-          fileForms: '{"file":"app/build/outputs/apk/debug/app-debug.apk"}'
+          fileForms: '{"file":"android/app/build/outputs/apk/debug/app-debug.apk"}'
     
     
     
