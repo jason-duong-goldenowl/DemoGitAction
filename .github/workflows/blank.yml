@@ -24,9 +24,6 @@ jobs:
     - name: Build debug apk
       run: ./gradlew build
       
-    - name: clean
-      run: ./gradlew clean
-      
     - name: build release 
       run: ./gradlew assembleRelease
 
