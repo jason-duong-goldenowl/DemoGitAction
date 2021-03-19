@@ -22,7 +22,7 @@ jobs:
           destination_folder: 'test'
           user_email: 'dirk.duong.goldenowl@gmail.com'
           user_name: 'jason-duong-goldenowl'
-          commit_message: 'A custom message for the commit'
+          commit_message: 'Up date File'
           
         
 #     - uses: actions/checkout@v2
