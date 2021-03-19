@@ -18,8 +18,8 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'App.js'
-          destination_repo: 'jason-duong-goldenowl/app_madnmore'
-          destination_folder: 'test'
+          destination_repo: 'jason-duong-goldenowl/dc-platform-auto-upload'
+          destination_folder: 'upload'
           user_email: 'dirk.duong.goldenowl@gmail.com'
           user_name: 'jason-duong-goldenowl'
           commit_message: 'Up date File'
