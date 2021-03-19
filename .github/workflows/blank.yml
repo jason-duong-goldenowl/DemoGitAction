@@ -24,7 +24,7 @@ jobs:
           user_name: 'jason-duong-goldenowl'
           commit_message: 'A custom message for the commit'
           
-          
+        
 #     - uses: actions/checkout@v2
       
 #     - name: Use Java8
