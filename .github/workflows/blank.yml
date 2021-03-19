@@ -8,9 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-
+    
     - uses: actions/checkout@v2
       
     - name: Use Java8
@@ -18,25 +17,52 @@ jobs:
       with:
           java-version: 1.8
           
-    - name: intall gradle wrapper
+    - name: Intall gradle wrapper
       run: gradle wrapper
       
-    - name: Build debug apk
-      run: ./gradlew build
-      
-    - name: build release 
-      run: ./gradlew assembleRelease
+    - name: Build Android
+      run: cd android && ./gradlew clean && ./gradlew build
 
-    - name: Create release and upload apk
-      uses: underwindfall/create-release-with-debugapk@v2.0.0
+    - name: Copy APK To Server Github
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        tag_name: v1.0.0
-        asset_path: app/build/outputs/apk/debug/app-debug.apk
-        asset_name: Example.apk
-        asset_content_type: application/zip
+        source_file: 'android/app/build/outputs/apk/release/app-release.apk'
+        destination_repo: 'jason-duong-goldenowl/dc-platform-auto-upload'
+        destination_folder: 'upload'
+        user_email: 'dirk.duong.goldenowl@gmail.com'
+        user_name: 'jason-duong-goldenowl'
+        commit_message: 'Update APK to dc-platform-auto-upload'
+
+#     - name: upload file apk
+#       id: myRequest
+#       run: curl -F email=dirk.duong.goldenowl@gmail.com -F file=@android/app/build/outputs/apk/debug/app-debug.apk https://srv-store1.gofile.io/uploadFile
     
+    
+#     - name: Update APK
+#       uses: JantHsueh/upload-file-action@master
+#       id: api
+#       with:
+#         url: https://srv-store1.gofile.io/uploadFile
+#         forms: '{"email":"dirk.duong.goldenowl@gmail.com"}'
+#         fileForms: '{"file":"android/app/build/outputs/apk/release/app-release.apk"}'
+
+#     - name: Send Noticafition
+#       run: |
+#         curl -i -X POST -H "Content-Type: application/json; charset=utf-8" --data-binary "{\"app_id\": \"4d9ed678-fd57-4ed5-955d-4a28a609b275\",\"contents\": {\"en\": \"${{ fromJson(steps.api.outputs.output).data.data.directLink }}\"},\"headings\": {\"en\": \"Update Verstion\"},\"include_player_ids\": [\"52019eb2-31bf-41d4-a844-4366010b9faa\"]}" https://onesignal.com/api/v1/notifications
+
+#     - name: 'Use response'
+#       run: echo ${{ fromJson(steps.api.outputs.output).data.data.directLink }}
+
+    
+#     - name: Upload File
+#       id: upload
+#       uses: JantHsueh/upload-file-action@master
+#       with:
+#           url: https://www.pgyer.com/apiv2/app/upload
+#           forms: '{"_api_key":"${{ secrets.pgyer_key }}","buildInstallType":3}'
+#           fileForms: '{"file":"android/app/build/outputs/apk/debug/app-debug.apk"}'
     
     
     
